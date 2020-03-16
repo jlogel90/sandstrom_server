@@ -1,3 +1,13 @@
+variable "vsphere_user" {
+    type = string
+}
+variable "vsphere_password" {
+    type = string
+}
+variable "vsphere_server" {
+    type = string
+}
+
 provider "vsphere" {
   user           = var.vsphere_user
   password       = var.vsphere_password
