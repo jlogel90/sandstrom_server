@@ -43,8 +43,9 @@ resource "vsphere_virtual_machine" "vm" {
     label = "disk0"
     size  = 25
   }
+}
   
-  resource "vsphere_virtual_machine" "vm" {
+resource "vsphere_virtual_machine" "vm" {
   name             = "Deploy"
   resource_pool_id = data.vsphere_resource_pool.pool.id
   datastore_id     = data.vsphere_datastore.datastore.id
@@ -61,8 +62,9 @@ resource "vsphere_virtual_machine" "vm" {
     label = "disk0"
     size  = 50
   }
+}
   
-  resource "vsphere_virtual_machine" "vm" {
+resource "vsphere_virtual_machine" "vm" {
   name             = "Test"
   resource_pool_id = data.vsphere_resource_pool.pool.id
   datastore_id     = data.vsphere_datastore.datastore.id
@@ -79,8 +81,9 @@ resource "vsphere_virtual_machine" "vm" {
     label = "disk0"
     size  = 70
   }
+}
   
-  resource "vsphere_virtual_machine" "vm" {
+resource "vsphere_virtual_machine" "vm" {
   name             = "Prod"
   resource_pool_id = data.vsphere_resource_pool.pool.id
   datastore_id     = data.vsphere_datastore.datastore.id
