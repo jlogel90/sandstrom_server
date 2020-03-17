@@ -1,3 +1,3 @@
-vsphere_user {}
-vsphere_password {}
-vsphere_server {}
+variable "vsphere_user" {}
+variable "vsphere_password" {}
+variable "vsphere_server" {}
