@@ -1,0 +1,37 @@
+--- # install Insurgency: Sandstorm Dedicated Server
+- hosts: Target
+  become: yes
+  become_user: steam
+  become_method: sudo
+  tasks:
+    - name: install steamcmd dependencies
+      become: yes
+      become_user: root
+      become_method: sudo
+      apt:
+        name: 
+        - lib32gcc1
+        - screen
+    - name: download steamcmd
+      get_url:
+        url: https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
+        dest: /home/steam/steamcmd_linux.tar.gz
+    - name: create directory before extract
+      file:
+        path: /home/steam/steamcmd
+        state: directory
+    - name: extract steamcmd 
+      unarchive:
+        src: /home/steam/steamcmd_linux.tar.gz
+        dest: /home/steam/steamcmd
+        remote_src: yes
+    - name: download dedicated server files
+      command: >
+        /home/steam/steamcmd/steamcmd.sh
+        +login anonymous
+        +app_update 581330 validate
+        +quit
+    - name: create config files directory
+      file:
+        path: /home/steam/Steam/steamapps/common/sandstorm_server/Insurgency/Saved/Config/LinuxServer
+        state: directory
